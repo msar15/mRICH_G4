@@ -1,0 +1,13 @@
+The code
+PHG4mRICHDetector.cc  PHG4mRICHSteppingAction.cc  PHG4mRICHSubsystem.cc
+PHG4mRICHDetector.h   PHG4mRICHSteppingAction.h   PHG4mRICHSubsystem.h
+
+PHG4mRICHDetector.* contains the detector description.
+
+It bleongs in the dir "coresoftware/simulation/g4simulation/g4detectors/"
+and must be compiled together to produce "libg4detectors.so"
+
+mRICH has a macro "G4_mRICH.C" that sets up mRICH.
+The mRICH is called by the overall setup macro "G4Setup_EICDetector.C"
+The setup macro gets called by the main maco "Fun4All_G4_EICDetector.C"
+The main macro has flags that allows enabling and disabling any detector
