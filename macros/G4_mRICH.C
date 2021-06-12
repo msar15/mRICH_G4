@@ -31,8 +31,12 @@ mRICHInit()
 // 2: build e-side wall
 // 3: build h-side wall
 // 4: build h-side wall and e-side wall
-void mRICHSetup(PHG4Reco* g4Reco, const int detectorSetup = 1, //1: full setup; 0:skeleton 
-	   const int mRICHsystemSetup = -1//2// -1//
+// 5: build b-side sectors
+// 6: build projected e-side wall
+
+void
+mRICHSetup(PHG4Reco* g4Reco, const int detectorSetup = 1, //1: full setup; 0:skeleton 
+	   const int mRICHsystemSetup = 6//5//2//-1//
 	   )
 {
 
@@ -42,7 +46,9 @@ void mRICHSetup(PHG4Reco* g4Reco, const int detectorSetup = 1, //1: full setup; 
   mRICH->set_int_param("detectorSetup",detectorSetup);
   mRICH->set_int_param("subsystemSetup",mRICHsystemSetup);
   mRICH->UseCalibFiles(PHG4DetectorSubsystem::xml);
-  mRICH->SetCalibrationFileDir(string(getenv("CALIBRATIONROOT")) + string("/mRICH/Geometry/") );
+  //mRICH->SetCalibrationFileDir(string(getenv("CALIBRATIONROOT")) + string("/mRICH/Geometry/") );
+  //mRICH->SetCalibrationFileDir(string("/gpfs/mnt/gpfs02/sphenix/user/sar/ecce/macros/detectors/EICDetector/") );
+  mRICH->SetCalibrationFileDir(string("./") );
   mRICH->OverlapCheck(OverlapCheck);
 
   g4Reco->registerSubsystem(mRICH);
